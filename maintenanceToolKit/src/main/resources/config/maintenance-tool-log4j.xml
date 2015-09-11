@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="changeMng-RollinglogFileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="./log/maintenance-toolkit.log" />
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="1000KB" />
+		<param name="MaxBackupIndex" value="5" />
+		<param name="ImmediateFlush" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p [%C{1}:%L] - %m%n" />
+		</layout>
+	</appender>	
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+      		<param name="ConversionPattern" value="%m%n" />
+  	</appender>
+	<!-- ************************************************************ -->
+
+    	<logger name="com.hp.btoe.maintenanceTool.utils">
+            <level value="info"/>
+            <appender-ref ref="changeMng-RollinglogFileAppender"/>          
+    	</logger>
+   
+	<logger name="com.hp.btoe.maintenanceTool.pages">
+            <level value="info"/>
+            <appender-ref ref="changeMng-RollinglogFileAppender"/>          
+    	</logger>
+	<logger name="com.hp.btoe.maintenanceTool.action">
+            <level value="info"/>
+            <appender-ref ref="changeMng-RollinglogFileAppender"/>          
+    	</logger>
+
+	<logger name="com.hp.autopassj">
+            <level value="info"/>
+            <appender-ref ref="changeMng-RollinglogFileAppender"/>          
+    	</logger>
+
+	<logger name="org.apache.commons">
+            <level value="info"/>
+            <appender-ref ref="changeMng-RollinglogFileAppender"/>          
+    	</logger>
+	<logger name="httpclient.wire">
+            <level value="info"/>
+            <appender-ref ref="changeMng-RollinglogFileAppender"/>          
+    	</logger>
+
+	
+</log4j:configuration>
